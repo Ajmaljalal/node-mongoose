@@ -3,21 +3,19 @@ const Campsite = require('./models/campsite');
 
 const url = 'mongodb://localhost:27017/nucampsite';
 const connect = mongoose.connect(url, {
-    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
 
 connect.then(() => {
 
     console.log('Connected correctly to server');
 
-    const newCampsite = new Campsite({
+    Campsite.create({
         name: 'React Lake Campground',
         description: 'test'
-    });
-
-    newCampsite.save()
+    })
         .then(campsite => {
             console.log(campsite);
             return Campsite.find();
