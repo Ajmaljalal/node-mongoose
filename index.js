@@ -36,10 +36,10 @@ connect.then(() => {
 
             return campsite.save();
         })
-        .then(campsite => {
-            console.log(campsite);
-            return Campsite.deleteMany();
-        })
+        // .then(campsite => {
+        //     console.log(campsite);
+        //     return Campsite.deleteMany();
+        // })
         .then(() => {
             return mongoose.connection.close();
         })
